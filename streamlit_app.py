@@ -3,6 +3,7 @@ import pandas as pd
 import io
 import matplotlib.pyplot as plt
 import seaborn as sns
+from pathlib import Path # <--- ADD THIS IMPORT
 
 st.set_page_config(layout="wide")
 
@@ -193,8 +194,9 @@ if uploaded_files:
 else:
     st.info("Please upload your Excel files to begin the analysis.")
 
+
 # --- Feature: Show App Code ---
-st.markdown("---") # Add a separator
+st.markdown("---")
 st.header('App Source Code', divider='gray')
 
 current_script_path = Path(__file__)
@@ -206,5 +208,3 @@ try:
         st.code(app_code, language='python')
 except Exception as e:
     st.error(f"Could not load app source code: {e}")
-st.markdown("---")
-st.markdown("Developed based on research into swing pricing mechanisms and regulatory guidelines.")
